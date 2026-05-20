@@ -1,57 +1,33 @@
-let personagens = [];
+let produtos = [];
 
-for (let i = 0; i < 3; i++) {
-    let nome;
+for (let i = 0; i < 5; i++) {
+    let nome = prompt("digite o nome do produto:");
 
-    while (true) {
-        nome = prompt("coloque o nome do personagem [" + (i + 1) + "]:");
+    let preco = Number(prompt("digite o preço do produto:"));
 
-        if (!nome || nome.trim() == "") {
-            alert("NOME INVÁLIDO");
-        } else {
-            break;
-        }
-    }
-
-    let obra;
-
-    while (true) {
-        obra = prompt("coloque o nome da obra (filme/série/jogo) [" + (i + 1) + "]:");
-
-        if (!obra || obra.trim() == "") {
-            alert("OBRA INVÁLIDA");
-        } else {
-            break;
-        }
-    }
-
-    let tipo;
-
-    while (true) {
-        tipo = prompt("coloque o tipo (filme, série ou jogo) [" + (i + 1) + "]:");
-
-        if (!tipo || tipo.trim() == "") {
-            alert("TIPO INVÁLIDO");
-        } else {
-            break;
-        }
-    }
-
-    personagens[i] = {
-        nomePersonagem: nome,
-        obraPersonagem: obra,
-        tipoPersonagem: tipo
+    produtos[i] = {
+        nomeProduto: nome,
+        precoProduto: preco
     };
 }
 
-let mensagem = "=== PERSONAGENS ===\n\n";
+let maisCaro = produtos[0];
+let maisBarato = produtos[0];
 
-for (let i = 0; i < personagens.length; i++) {
-    mensagem += "Personagem: " + personagens[i].nomePersonagem + "\n";
-    mensagem += "Obra: " + personagens[i].obraPersonagem + "\n";
-    mensagem += "Tipo: " + personagens[i].tipoPersonagem + "\n";
-    mensagem += "-------------------\n";
+for (let i = 1; i < produtos.length; i++) {
+    if (produtos[i].precoProduto > maisCaro.precoProduto) {
+        maisCaro = produtos[i];
+    }
+
+    if (produtos[i].precoProduto < maisBarato.precoProduto) {
+        maisBarato = produtos[i];
+    }
 }
 
+// SAÍDA
+let mensagem = "MAIS CARO: " + maisCaro.nomeProduto + " - R$ " + maisCaro.precoProduto + "\n";
+mensagem += "MAIS BARATO: " + maisBarato.nomeProduto + " - R$ " + maisBarato.precoProduto;
+
 alert(mensagem);
+console.log(mensagem);
 
