@@ -23,8 +23,6 @@ for (let i = 1; i < produtos.length; i++) {
         maisBarato = produtos[i];
     }
 }
-
-// SAÍDA
 let mensagem = "MAIS CARO: " + maisCaro.nomeProduto + " - R$ " + maisCaro.precoProduto + "\n";
 mensagem += "MAIS BARATO: " + maisBarato.nomeProduto + " - R$ " + maisBarato.precoProduto;
 
