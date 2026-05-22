@@ -45,4 +45,3 @@ for (let i = 0; i < produtos.length; i++) {
 mensagem += "\nTOTAL: R$ " + soma.toFixed(2);
 
 alert(mensagem);
-console.log(mensagem);
