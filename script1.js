@@ -46,4 +46,3 @@ if (acimaDe15.length == 0) {
 }
 
 alert(mensagem);
-console.log(mensagem);
