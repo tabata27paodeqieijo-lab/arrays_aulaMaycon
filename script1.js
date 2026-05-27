@@ -35,7 +35,6 @@ for (let i = 0; i < 5; i++) {
 let maisCaro = produtos[0];
 let maisBarato = produtos[0];
 
-// Percorre o vetor para comparar os preços
 for (let i = 1; i < produtos.length; i++) {
 
     if (produtos[i].precoProduto > maisCaro.precoProduto) {
