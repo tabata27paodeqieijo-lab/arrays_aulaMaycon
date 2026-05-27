@@ -1,4 +1,5 @@
-let numeros = [];
+let produtos = [];
+
 
 for (let i = 0; i < 5; i++) {
     while (true) {
@@ -15,8 +16,18 @@ for (let i = 0; i < 5; i++) {
 
 let mensagem = "=== NÚMEROS DIGITADOS ===\n\n";
 
-for (let i = 0; i < numeros.length; i++) {
-    mensagem += "Posição " + i + ": " + numeros[i] + "\n";
+let maisCaro = produtos[0];
+let maisBarato = produtos[0];
+
+for (let i = 1; i < produtos.length; i++) {
+
+    if (produtos[i].precoProduto > maisCaro.precoProduto) {
+        maisCaro = produtos[i];
+    }
+
+    if (produtos[i].precoProduto < maisBarato.precoProduto) {
+        maisBarato = produtos[i];
+    }
 }
 
 alert(mensagem);
