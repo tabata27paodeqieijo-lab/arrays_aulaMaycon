@@ -1,47 +1,22 @@
-let produtos = [];
-let soma = 0;
+let numeros = [];
 
 for (let i = 0; i < 5; i++) {
-    let nome;
-
     while (true) {
-        nome = prompt("coloque o nome do produto [" + (i + 1) + "]:");
+        let valor = Number(prompt("Digite o número [" + (i + 1) + "]:"));
 
-        if (!nome || nome.trim() == "") {
-            alert("NOME INVÁLIDO");
+        if (isNaN(valor)) {
+            alert("Número inválido!");
         } else {
+            numeros[i] = valor;
             break;
         }
     }
-
-    let preco;
-
-    while (true) {
-        preco = Number(prompt("coloque o preço do produto [" + (i + 1) + "]:"));
-
-        if (isNaN(preco) || preco <= 0) {
-            alert("PREÇO INVÁLIDO");
-        } else {
-            break;
-        }
-    }
-
-    produtos[i] = {
-        nomeProduto: nome,
-        precoProduto: preco
-    };
-
-    soma += preco;
 }
 
-let mensagem = "=== PRODUTOS ===\n\n";
+let mensagem = "=== NÚMEROS DIGITADOS ===\n\n";
 
-for (let i = 0; i < produtos.length; i++) {
-    mensagem += "Produto: " + produtos[i].nomeProduto + "\n";
-    mensagem += "Preço: R$ " + produtos[i].precoProduto.toFixed(2) + "\n";
-    mensagem += "-------------------\n";
+for (let i = 0; i < numeros.length; i++) {
+    mensagem += "Posição " + i + ": " + numeros[i] + "\n";
 }
-
-mensagem += "\nTOTAL: R$ " + soma.toFixed(2);
 
 alert(mensagem);
