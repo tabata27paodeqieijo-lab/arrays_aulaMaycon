@@ -1,33 +1,42 @@
-let produtos = [];
+let personagem = {};
 
+while (true) {
+    personagem.nome = prompt("Digite o nome do personagem:");
 
-for (let i = 0; i < 5; i++) {
-    while (true) {
-        let valor = Number(prompt("Digite o número [" + (i + 1) + "]:"));
-
-        if (isNaN(valor)) {
-            alert("Número inválido!");
-        } else {
-            numeros[i] = valor;
-            break;
-        }
+    if (!personagem.nome || personagem.nome.trim() === "") {
+        alert("Nome inválido!");
+    } else {
+        break;
     }
 }
 
-let mensagem = "=== NÚMEROS DIGITADOS ===\n\n";
+while (true) {
+    personagem.obra = prompt("Digite o nome da obra:");
 
-let maisCaro = produtos[0];
-let maisBarato = produtos[0];
-
-for (let i = 1; i < produtos.length; i++) {
-
-    if (produtos[i].precoProduto > maisCaro.precoProduto) {
-        maisCaro = produtos[i];
-    }
-
-    if (produtos[i].precoProduto < maisBarato.precoProduto) {
-        maisBarato = produtos[i];
+    if (!personagem.obra || personagem.obra.trim() === "") {
+        alert("Obra inválida!");
+    } else {
+        break;
     }
 }
+
+while (true) {
+    personagem.tipo = prompt("Digite o tipo (filme, série ou jogo):");
+
+    if (!personagem.tipo || personagem.tipo.trim() === "") {
+        alert("Tipo inválido!");
+    } else {
+        break;
+    }
+}
+
+let mensagem = "=== PERSONAGEM ===\n\n";
+
+mensagem += "Nome: " + personagem.nome + "\n";
+mensagem += "Obra: " + personagem.obra + "\n";
+mensagem += "Tipo: " + personagem.tipo + "\n\n";
+
+mensagem += personagem.nome + " é um personagem da " +
+personagem.tipo + " \"" + personagem.obra + "\".";
 
 alert(mensagem);
