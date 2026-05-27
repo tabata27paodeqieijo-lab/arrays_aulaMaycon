@@ -1,59 +1,58 @@
 let produtos = [];
-let soma = 0;
 
 
 for (let i = 0; i < 5; i++) {
     let nome;
-
-
-    while (true) {
-        nome = prompt("coloque o nome do produto [" + (i + 1) + "]:");
-
-
-        if (!nome || nome.trim() == "") {
-            alert("NOME INVÁLIDO");
-        } else {
-            break;
-        }
-    }
-
-
     let preco;
 
+       while (true) {
+        nome = prompt(`Digite o nome do produto [${i + 1}]:`);
 
-    while (true) {
-        preco = Number(prompt("coloque o preço do produto [" + (i + 1) + "]:"));
-
-
-        if (isNaN(preco) || preco <= 0) {
-            alert("PREÇO INVÁLIDO");
+        if (!nome || nome.trim() === "") {
+            alert("nome inválido!");
         } else {
             break;
         }
     }
 
+    while (true) {
+        preco = Number(prompt(`Digite o preço do produto [${i + 1}]:`));
 
-    produtos[i] = {
+        if (isNaN(preco) || preco <= 0) {
+            alert("Preço inválido!");
+        } else {
+            break;
+        }
+    }
+
+    produtos.push({
         nomeProduto: nome,
         precoProduto: preco
-    };
-
-
-    soma += preco;
+    });
 }
 
 
-let mensagem = "=== PRODUTOS ===\n\n";
+let maisCaro = produtos[0];
+let maisBarato = produtos[0];
 
+// Percorre o vetor para comparar os preços
+for (let i = 1; i < produtos.length; i++) {
 
-for (let i = 0; i < produtos.length; i++) {
-    mensagem += "Produto: " + produtos[i].nomeProduto + "\n";
-    mensagem += "Preço: R$ " + produtos[i].precoProduto.toFixed(2) + "\n";
-    mensagem += "-------------------\n";
+    if (produtos[i].precoProduto > maisCaro.precoProduto) {
+        maisCaro = produtos[i];
+    }
+
+    if (produtos[i].precoProduto < maisBarato.precoProduto) {
+        maisBarato = produtos[i];
+    }
 }
+let mensagem = "=== RESULTADO ===\n\n";
 
+mensagem += "produto mais caro:\n";
+mensagem += `${maisCaro.nomeProduto} - R$ ${maisCaro.precoProduto.toFixed(2)}\n\n`;
 
-mensagem += "\nTOTAL: R$ " + soma.toFixed(2);
-
+mensagem += "produto mais barato:\n";
+mensagem += `${maisBarato.nomeProduto} - R$ ${maisBarato.precoProduto.toFixed(2)}`;
 
 alert(mensagem);
+
