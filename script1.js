@@ -1,48 +1,42 @@
-let produtos = [];
+let personagem = {};
 
-for (let i = 0; i < 5; i++) {
-    let nome = prompt("digite o nome do produto:");
+while (true) {
+    personagem.nome = prompt("Digite o nome do personagem:");
 
-    let preco = Number(prompt("digite o preço do produto:"));
-
-    produtos[i] = {
-        nomeProduto: nome,
-        precoProduto: preco
-    };
-}
-
-let maisCaro = produtos[0];
-let maisBarato = produtos[0];
-
-for (let i = 1; i < produtos.length; i++) {
-    if (produtos[i].precoProduto > maisCaro.precoProduto) {
-        maisCaro = produtos[i];
-    }
-
-    if (produtos[i].precoProduto < maisBarato.precoProduto) {
-        maisBarato = produtos[i];
+    if (!personagem.nome || personagem.nome.trim() === "") {
+        alert("Nome inválido!");
+    } else {
+        break;
     }
 }
 
-let acimaDe15 = [];
+while (true) {
+    personagem.obra = prompt("Digite o nome da obra:");
 
-for (let i = 0; i < produtos.length; i++) {
-    if (produtos[i].precoProduto > 15) {
-        acimaDe15.push(produtos[i]);
+    if (!personagem.obra || personagem.obra.trim() === "") {
+        alert("Obra inválida!");
+    } else {
+        break;
     }
 }
 
-let mensagem = "mais caro: " + maisCaro.nomeProduto + " - R$ " + maisCaro.precoProduto + "\n";
-mensagem += "mais barato: " + maisBarato.nomeProduto + " - R$ " + maisBarato.precoProduto + "\n\n";
+while (true) {
+    personagem.tipo = prompt("Digite o tipo (filme, série ou jogo):");
 
-mensagem += "=== PRODUTOS ACIMA DE R$15 ===\n";
-
-if (acimaDe15.length == 0) {
-    mensagem += "nenhum produto acima de R$15.";
-} else {
-    for (let i = 0; i < acimaDe15.length; i++) {
-        mensagem += acimaDe15[i].nomeProduto + " - R$ " + acimaDe15[i].precoProduto + "\n";
+    if (!personagem.tipo || personagem.tipo.trim() === "") {
+        alert("Tipo inválido!");
+    } else {
+        break;
     }
 }
+
+let mensagem = "=== PERSONAGEM ===\n\n";
+
+mensagem += "Nome: " + personagem.nome + "\n";
+mensagem += "Obra: " + personagem.obra + "\n";
+mensagem += "Tipo: " + personagem.tipo + "\n\n";
+
+mensagem += personagem.nome + " é um personagem da " +
+personagem.tipo + " \"" + personagem.obra + "\".";
 
 alert(mensagem);
